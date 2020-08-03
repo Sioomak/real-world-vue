@@ -3,13 +3,17 @@
     <div class="event-header">
       <span class="eyebrow">@{{ event.time }} on {{ event.date }}</span>
       <h1 class="title">{{ event.title }}</h1>
-      <h5>Organized by {{ event.organizer }}</h5>
+      <h5>Organized by {{ event.organizer ? event.organizer.name : '' }}</h5>
       <h5>Category: {{ event.category }}</h5>
     </div>
+
     <BaseIcon name="map"><h2>Location</h2></BaseIcon>
+
     <address>{{ event.location }}</address>
+
     <h2>Event details</h2>
     <p>{{ event.description }}</p>
+
     <h2>
       Attendees
       <span class="badge -fill-gradient">{{
@@ -29,6 +33,7 @@
 </template>
 <script>
 import EventService from '@/services/EventService.js'
+
 export default {
   props: ['id'],
   data() {
@@ -42,12 +47,11 @@ export default {
         this.event = response.data
       })
       .catch(error => {
-        console.log("there's an Errror: " + error.response)
+        console.log('There was an error:', error.response)
       })
   }
 }
 </script>
-
 <style scoped>
 .location {
   margin-bottom: 0;
