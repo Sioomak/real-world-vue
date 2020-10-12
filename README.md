@@ -9,6 +9,12 @@ npm install
 ### Compiles and hot-reloads for development
 
 ```
+json-server --watch db.json
+```
+
+### Watches and the Evenets from the fake API db.json
+
+```
 npm run serve
 ```
 
