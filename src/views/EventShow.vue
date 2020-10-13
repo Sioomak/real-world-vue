@@ -7,22 +7,15 @@
       <h5>Category: {{ event.category }}</h5>
     </div>
 
-    <BaseIcon name="map">
-      <h2>Location</h2>
-    </BaseIcon>
+    <BaseIcon name="map"><h2>Location</h2></BaseIcon>
 
     <address>{{ event.location }}</address>
 
     <h2>Event details</h2>
     <p>{{ event.description }}</p>
 
-    <h2>
-      Attendees
-      <span class="badge -fill-gradient">
-        {{
-        event.attendees ? event.attendees.length : 0
-        }}
-      </span>
+    <h2>Attendees
+      <span class="badge -fill-gradient">{{ event.attendees ? event.attendees.length : 0 }}</span>
     </h2>
     <ul class="list-group">
       <li v-for="(attendee, index) in event.attendees" :key="index" class="list-item">
@@ -32,24 +25,17 @@
   </div>
 </template>
 <script>
-import EventService from '@/services/EventService.js'
+import { mapState, mapActions } from 'vuex'
 
 export default {
   props: ['id'],
-  data() {
-    return {
-      event: {}
-    }
-  },
   created() {
-    EventService.getEvent(this.id)
-      .then(response => {
-        this.event = response.data
-      })
-      .catch(error => {
-        console.log('There was an error:', error.response)
-      })
-  }
+    this.fetchEvent(this.id)
+  },
+  computed: mapState({
+    event: state => state.event.event
+  }),
+  methods: mapActions('event', ['fetchEvent'])
 }
 </script>
 <style scoped>
