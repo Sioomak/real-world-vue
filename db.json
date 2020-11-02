@@ -231,24 +231,6 @@
       "date": "",
       "time": "5:00",
       "attendees": []
-    },
-    {
-      "id": 5212227,
-      "user": {
-        "id": "abc123",
-        "name": "Siamak"
-      },
-      "category": "nature",
-      "organizer": {
-        "id": "abc123",
-        "name": "Siamak"
-      },
-      "title": "title",
-      "description": "description",
-      "location": "tehran",
-      "date": "2020-11-01T00:35:00.000Z",
-      "time": "3:00",
-      "attendees": []
     }
   ]
 }
