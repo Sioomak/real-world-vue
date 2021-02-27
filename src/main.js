@@ -7,6 +7,8 @@ import store from './store/store'
 import 'nprogress/nprogress.css'
 import Vuelidate from 'vuelidate'
 import DateFilter from './filters/date'
+import './assets/css/tailwind.css'
+
 
 Vue.filter('date', DateFilter)
 
